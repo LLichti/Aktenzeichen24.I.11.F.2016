@@ -14,7 +14,7 @@
             color: #ffffff;
             font-family: Arial, sans-serif;
         }
-        .countdown {
+        .countdown, .login {
             text-align: center;
             background: #1e1e1e;
             padding: 20px;
@@ -28,31 +28,66 @@
         .countdown p {
             font-size: 2em;
         }
+        .login input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 1em;
+        }
+        .login button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="countdown">
-        <h1 id="timer">Lädt...</h1>
+    <div class="login">
+        <h1>Login</h1>
+        <input type="text" id="username" placeholder="Benutzername"><br>
+        <input type="password" id="password" placeholder="Passwort"><br>
+        <button onclick="login()">Login</button>
+        <p id="error" style="color: red;"></p>
+    </div>
+    <div class="countdown" style="display:none;">
+        <h1>Countdown bis zum 24.08.2024</h1>
+        <p id="timer">Lädt...</p>
     </div>
     <script>
-        function updateCountdown() {
-            const targetDate = new Date("August 24, 2024 00:00:00").getTime();
-            const now = new Date().getTime();
-            const timeLeft = targetDate - now;
+        const correctUsername = "deinBenutzername";
+        const correctPassword = "deinPasswort";
 
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-            document.getElementById("timer").innerHTML = `   ${days} days and ${hours}:${minutes}:${seconds} left   `;
-
-            if (timeLeft < 0) {
-                document.getElementById("timer").innerHTML = "Das Datum ist erreicht!";
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            if (username === correctUsername && password === correctPassword) {
+                document.querySelector(".login").style.display = "none";
+                document.querySelector(".countdown").style.display = "block";
+                startCountdown();
+            } else {
+                document.getElementById("error").textContent = "Ungültiger Benutzername oder Passwort";
             }
         }
 
-        setInterval(updateCountdown, 1000);
+        function startCountdown() {
+            function updateCountdown() {
+                const targetDate = new Date("August 24, 2024 00:00:00").getTime();
+                const now = new Date().getTime();
+                const timeLeft = targetDate - now;
+
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("timer").innerHTML = `${days} Tage ${hours}:${minutes}:${seconds}`;
+
+                if (timeLeft < 0) {
+                    document.getElementById("timer").innerHTML = "Das Datum ist erreicht!";
+                }
+            }
+
+            setInterval(updateCountdown, 1000);
+        }
     </script>
 </body>
 </html>
