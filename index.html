@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktenzeichen 24.I.11.F.2016</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .countdown {
+            text-align: center;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .countdown h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .countdown p {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown">
+        <h1 id="timer">Lädt...</h1>
+    </div>
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("August 24, 2024 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = `   ${days} days and ${hours}:${minutes}:${seconds} left   `;
+
+            if (timeLeft < 0) {
+                document.getElementById("timer").innerHTML = "Das Datum ist erreicht!";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
