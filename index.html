@@ -71,6 +71,7 @@
             if (username === correctUsername && password === correctPassword) {
                 document.querySelector(".login").style.display = "none";
                 document.querySelector(".countdown").style.display = "block";
+                document.querySelector(".input-container").style.display = "block";
                 startCountdown();
             } else {
                 document.getElementById("error").textContent = "Ungültiger Benutzername oder Passwort";
