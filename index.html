@@ -74,10 +74,10 @@
         <h1 id="timer">Lädt...</h1>
     </div>
     <div class="input-container" style="display:none;">
-        <h3>Manchmal hilft einem nur der Katastrophenschutz 133:134 weiter.</h3>
-        <h1>Ihr Nachfolger war der b4b5162d63846d9df2056bc6aad02e7c</h1>
-        <input type="text" id="wordInput" placeholder="???"><br>
-        <button onclick="checkWord()">Rätsel gelöst?</button>
+        <h3>Halte dich still, halte dich stumm, nur nicht forschen, warum? warum? Nur nicht bittre Fragen tauschen, Antwort ist doch nur wie Meeresrauschen. Wie's dich auch aufzuhorchen treibt, Das Dunkel, das Rätsel, die Frage bleibt.</h3>
+        <a href="https://www.youtube.com/watch?v=otgnuwR6w8o"­target="_blank"­>???</a>
+        <input type="text" id="wordInput" placeholder="?"><br>
+        <button onclick="checkWord()">?</button>
         <p id="error" class="error"></p>
     </div>
     <script>
@@ -118,12 +118,12 @@
             setInterval(updateCountdown, 1000);
         }
 
-        const correctWord = "celica"; // Setze hier das korrekte Wort
+        const correctWord = "Do I Have To Say The Words?"; // Setze hier das korrekte Wort
 
         function checkWord() {
             const userInput = document.getElementById("wordInput").value;
             if (userInput === correctWord) {
-                alert("Sehr gut, ihr habt euer Wissen zusammengetan und das Rätsel gelöst! Der Dieb wurde in der Nähe eines Casinos gesichtet, ahnt aber noch nichts. Die Beschattung geht weiter... PS: Bei Schnee und Frost ist mit auftretender Kälte zu rechnen.");
+                alert("Erster Teil gelöst. Der Geburtsort eines Künstlers war schon immer wichtig. PS: Berge und Hügel unterscheiden sich von ihrer Umgebung, vorrangig durch ihre Höhe.");
                 // Hier kannst du weiteren Text oder Funktionen hinzufügen, die bei korrekter Eingabe angezeigt/ausgeführt werden sollen.
             } else {
                 document.getElementById("error").textContent = "Die Eingabe war falsch.";
