@@ -74,9 +74,9 @@
         <h1 id="timer">Lädt...</h1>
     </div>
     <div class="input-container" style="display:none;">
-        <h3>Halte dich still, halte dich stumm, nur nicht forschen, warum? warum? Nur nicht bittre Fragen tauschen, Antwort ist doch nur wie Meeresrauschen. Wie's dich auch aufzuhorchen treibt, Das Dunkel, das Rätsel, die Frage bleibt.</h3>
-        <a href="https://www.youtube.com/watch?v=otgnuwR6w8o" ­target="_blank"­>?</a>
-        <input type="text" id="wordInput" placeholder="?"><br>
+        <h3>Der Countdown neigt sich dem Ende zu! Die Spione sind kurz davor, den genauen Plan des Diebs zu erkennen...</h3>
+        <h1>"Im Sommer von '69, im Himmel, alles was ich tue ist für dich. Muss ich die Worte wirklich noch aussprechen? Ich bin hier - lass mich nicht los. Ich werde immer zu dir zurückkehren."</h1>
+        <input type="text" id="wordInput" placeholder="Welcher Ort ist gesucht?"><br>
         <button onclick="checkWord()">?</button>
         <p id="error" class="error"></p>
     </div>
@@ -111,19 +111,19 @@
                 document.getElementById("timer").innerHTML = `${days} Tage und ${hours}:${minutes}:${seconds} übrig`;
 
                 if (timeLeft < 0) {
-                    document.getElementById("timer").innerHTML = "Das Datum ist erreicht!";
+                    document.getElementById("timer").innerHTML = "Happy Wedding Day!";
                 }
             }
 
             setInterval(updateCountdown, 1000);
         }
 
-        const correctWord = "Do I Have To Say The Words?"; // Setze hier das korrekte Wort
+        const correctWord = "Kingston"; // Setze hier das korrekte Wort
 
         function checkWord() {
             const userInput = document.getElementById("wordInput").value;
             if (userInput === correctWord) {
-                alert("Erster Teil gelöst. Der Geburtsort eines Künstlers war schon immer wichtig. PS: Berge und Hügel unterscheiden sich von ihrer Umgebung, vorrangig durch ihre Höhe.");
+                alert("Zweiter Teil gelöst. Die Spione haben endlich herausgefunden, was der Dieb vorhat: Der Dieb wird an den Ort des Verbrechens zurückkehren und versuchen, noch mehr zu stehlen! Die Spione haben euch einen letzten Hinweis zukommen lassen. Nun liegt es an euch, den Dieb ausfindig zu machen und aufzuhalten, bevor er noch mehr klaut!");
                 // Hier kannst du weiteren Text oder Funktionen hinzufügen, die bei korrekter Eingabe angezeigt/ausgeführt werden sollen.
             } else {
                 document.getElementById("error").textContent = "Die Eingabe war falsch.";
